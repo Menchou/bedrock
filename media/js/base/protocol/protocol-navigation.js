@@ -82,8 +82,10 @@
      */
     MzpNavigation.destroySticky = function () {
         _viewport.classList.remove('mzp-has-sticky-navigation');
-        _navElem.classList.remove('mzp-is-scrolling');
-        _navElem.classList.remove('mzp-is-hidden');
+        if (_navElem && _navElem.classList) {
+            _navElem.classList.remove('mzp-is-scrolling');
+            _navElem.classList.remove('mzp-is-hidden');
+        }
         _lastKnownScrollPosition = 0;
 
         if (_animationFrameID) {
