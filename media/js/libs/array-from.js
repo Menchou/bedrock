@@ -73,12 +73,13 @@ if (!Array.from) {
                         );
                     }
                 }
+            } else {
                 // Array-like case: iterate up to len and then set length.
                 while (k < len) {
                     var item = getItem(k);
                     var kValue = item;
 
-                    if (mapFn) {
+                        if (mapFn) {
                         A[k] =
                             typeof T === 'undefined'
                                 ? mapFn(kValue, k)
@@ -88,8 +89,6 @@ if (!Array.from) {
                     }
                     k += 1;
                 }
-
-            } else {
                 return A;
                 A.length = len;
             }
